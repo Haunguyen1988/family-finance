@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Finance app palette — clean, trustworthy: deep teal primary, warm off-white surface */
+    --background: 220 20% 97%;
+    --foreground: 220 25% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 12%;
+    --primary: 183 98% 22%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 14% 94%;
+    --secondary-foreground: 220 25% 22%;
+    --muted: 220 14% 94%;
+    --muted-foreground: 220 10% 50%;
+    --accent: 183 40% 92%;
+    --accent-foreground: 183 98% 18%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 13% 88%;
+    --input: 220 13% 88%;
+    --ring: 183 98% 22%;
+    --radius: 0.5rem;
+
+    /* Income / Expense semantic colors */
+    --income: 103 56% 31%;
+    --income-bg: 103 40% 94%;
+    --expense: 0 72% 51%;
+    --expense-bg: 0 72% 96%;
+    --transfer: 220 70% 45%;
+    --transfer-bg: 220 70% 94%;
+
+    /* Chart colors */
+    --chart-1: 183 98% 22%;
+    --chart-2: 103 56% 38%;
+    --chart-3: 20 73% 34%;
+    --chart-4: 320 57% 40%;
+    --chart-5: 40 95% 45%;
+  }
+
+  .dark {
+    --background: 220 25% 8%;
+    --foreground: 220 15% 85%;
+    --card: 220 20% 11%;
+    --card-foreground: 220 15% 85%;
+    --popover: 220 20% 11%;
+    --popover-foreground: 220 15% 85%;
+    --primary: 188 35% 50%;
+    --primary-foreground: 220 25% 8%;
+    --secondary: 220 18% 16%;
+    --secondary-foreground: 220 15% 75%;
+    --muted: 220 18% 16%;
+    --muted-foreground: 220 10% 55%;
+    --accent: 188 30% 18%;
+    --accent-foreground: 188 35% 65%;
+    --destructive: 0 63% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 18% 20%;
+    --input: 220 18% 20%;
+    --ring: 188 35% 50%;
+
+    --income: 97 43% 47%;
+    --income-bg: 97 30% 14%;
+    --expense: 0 63% 55%;
+    --expense-bg: 0 40% 15%;
+    --transfer: 220 60% 55%;
+    --transfer-bg: 220 40% 18%;
+
+    --chart-1: 188 35% 50%;
+    --chart-2: 97 43% 47%;
+    --chart-3: 20 53% 48%;
+    --chart-4: 320 47% 60%;
+    --chart-5: 40 80% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { @apply bg-border rounded-full; }
+::-webkit-scrollbar-thumb:hover { @apply bg-muted-foreground; }

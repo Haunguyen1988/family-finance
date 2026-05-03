@@ -1,0 +1,52 @@
+import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+
+export function formatCurrency(amount: number): string {
+  return new Intl.NumberFormat("vi-VN", {
+    style: "currency",
+    currency: "VND",
+    minimumFractionDigits: 0,
+  }).format(amount);
+}
+
+export function formatDate(dateStr: string): string {
+  const d = new Date(dateStr);
+  return new Intl.DateTimeFormat("vi-VN", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  }).format(d);
+}
+
+export function getCurrentMonth(): string {
+  const now = new Date();
+  return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}`;
+}
+
+export function getMonthLabel(month: string): string {
+  const [year, m] = month.split("-");
+  return `Tháng ${parseInt(m)}/${year}`;
+}
+
+export function getRoleLabel(role: string): string {
+  const map: Record<string, string> = {
+    admin: "Quản trị",
+    member: "Thành viên",
+    child: "Con",
+  };
+  return map[role] || role;
+}
+
+export function getWalletTypeLabel(type: string): string {
+  const map: Record<string, string> = {
+    cash: "Tiền mặt",
+    bank: "Ngân hàng",
+    credit: "Thẻ tín dụng",
+    savings: "Tiết kiệm",
+  };
+  return map[type] || type;
+}
